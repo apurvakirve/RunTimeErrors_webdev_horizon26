@@ -61,6 +61,33 @@ When a crisis is detected (BSS > Threshold), the UI transforms. All non-essentia
 * **Database:** PostgreSQL (Supabase)
 
 ---
+### Data Pipeline Flow
+
+This diagram shows the end-to-end request/data lifecycle — from data generation to rendering on screen.
+
+```mermaid
+flowchart LR
+    A(["🎲 Data Simulator\nEmits tick every 5s"]) -->|INSERT row| B[("🐘 PostgreSQL")]
+    B -->|Row change event| C["⚡ Supabase Realtime"]
+    C -->|WebSocket push| D["🌐 React Client\nuseMetrics hook"]
+    D -->|State update| E["📊 Dashboard UI\nCharts re-render"]
+
+    A2(["👤 User Request\n(Page load / poll)"]) -->|REST GET| F["🔀 Express API"]
+    F -->|Query| B
+    B -->|Rows| F
+    F -->|JSON response| D
+
+    F --> G["📊 Stress Score Engine"]
+    G -->|score 0–100| H["🔔 Alert Engine"]
+    H -->|alerts classified| F
+
+    I(["💬 Chatbot Query"]) -->|POST /api/chatbot| F
+    F -->|prompt + context| J["✨ Gemini API"]
+    J -->|AI response| F
+    F -->|reply| K["🤖 ChatbotDrawer UI"]
+```
+
+---
 
 ## 📉 The Stress Score Formula
 
