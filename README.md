@@ -16,6 +16,59 @@ OpsPulse is a high-performance business intelligence platform designed for Small
 
 ---
 
+# 📡 OpsPulse — Unified Business Health Dashboard
+
+**OpsPulse** is a real-time, web-based analytics engine designed to eliminate data silos for Small and Medium-sized Businesses (SMBs). By aggregating fragmented data from sales, inventory, and support, OpsPulse provides founders and managers with a singular, actionable pulse on their operational health.
+
+---
+
+## 🚀 Core Features
+
+### 🧠 1. Business Stress Score (BSS)
+A dynamically computed metric derived from a weighted formula across three business verticals. The BSS acts as a "Check Engine" light for the entire company, recalculating in real-time as data streams in.
+
+### 🚨 2. Three-Tier Intelligent Alerts
+Our system categorizes signals to prevent dashboard fatigue:
+* **Crisis Alerts:** Immediate threats requiring the "War Room."
+* **Opportunity Signals:** Positive trends (e.g., sudden sales spikes).
+* **Anomaly Flags:** Unusual patterns that require investigation.
+
+### 👥 3. Dual-Role Interface
+* **Business Owner View:** High-level KPIs, cash flow health, and long-term trends.
+* **Operations Manager View:** Granular logistics, ticket volumes, and inventory turnover.
+
+### 🔴 4. War Room Mode
+When a crisis is detected (BSS > Threshold), the UI transforms. All non-essential data is stripped away, surfacing only the most critical, actionable metrics to resolve the simulation crisis.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Frontend:** Next.js 14 (App Router), Tailwind CSS, Shadcn/UI
+* **Charts:** Tremor & Recharts
+* **Real-time Engine:** Socket.io / Supabase Realtime
+* **Backend:** Node.js (TypeScript)
+* **Database:** PostgreSQL (Supabase)
+* **State Management:** Zustand (for War Room global state)
+
+---
+
+## 📉 The Stress Score Formula
+
+The **Business Stress Score ($S$)** is calculated using the following business-justified weighted formula:
+
+$$S = \sum_{i=1}^{n} (w_i \cdot V_i)$$
+
+Where:
+* $V_1$ = **Sales Velocity** (inverted)
+* $V_2$ = **Inventory Stock-out Risk**
+* $V_3$ = **Support Ticket Backlog**
+* $w$ = **Weighting factors** (assigned based on business impact)
+
+> **Note:** A detailed one-page justification of this logic is included in the `/docs` folder for the judging panel.
+
+---
+
 ## 🛠️ Project Structure
 
 ### Backend (`/backend`)
