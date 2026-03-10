@@ -23,12 +23,6 @@ OpsPulse is a high-performance business intelligence platform designed for Small
 
 ---
 
-# 📡 OpsPulse — Unified Business Health Dashboard
-
-**OpsPulse** is a real-time, web-based analytics engine designed to eliminate data silos for Small and Medium-sized Businesses (SMBs). By aggregating fragmented data from sales, inventory, and support, OpsPulse provides founders and managers with a singular, actionable pulse on their operational health.
-
----
-
 ## 🚀 Core Features
 
 ### 🧠 1. Business Stress Score (BSS)
